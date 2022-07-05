@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import useBeforeLeave from "./hooks/useBeforeLeave";
+import useTitle from "./hooks/useTitle";
+import UseTabView from "./example-views/UseTabView";
+import useFadeIn from "./hooks/useFadeIn";
 
-function App() {
+export default function App() {
+  // useTitle
+  const titleUpdater = useTitle("Loading...");
+  // useBeforeLeave
+  const begForLife = () => console.log("please dont leave");
+  useBeforeLeave(begForLife);
+
+  const fadeInH1 = useFadeIn(2, 2);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <h1 {...fadeInH1}>Hello</h1>
+      </div>
+
+      <h1>Custom hook examples</h1>
+      <div>
+        <UseTabView onTabChanged={titleUpdater} />
+      </div>
     </div>
   );
 }
-
-export default App;
