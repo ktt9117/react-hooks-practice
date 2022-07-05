@@ -13,4 +13,4 @@
 - [x] usePreventLeave
 - [x] useBeforeLeave
 - [x] useNotification
-- [ ] useAxios
+- [x] useAxios
